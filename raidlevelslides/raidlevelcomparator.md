@@ -1,0 +1,82 @@
+RAID Level Comparator
+========================================================
+author: Hannu Kivimaki
+date: 2016-06-19
+autosize: true
+
+Coursera *Developing Data Products* Assignment
+
+What is RAID?
+========================================================
+type: raidslide
+
+In data storage, a redundant array of independent disks, RAID
+
+<span class="white">
+*"...combines multiple physical disk drive components into a single logical
+unit for the purposes of data redundancy, performance improvement,
+or both."*</span> <sup>1</sup>
+
+<span class="white">
+*"...and to increase storage capacity in a system."*</span> <sup>2</sup>
+
+Drive components originally referred to hard drives (HDD), but now as well
+to solid state drives (SSD) or some other technology.
+
+<sup>1</sup> https://en.wikipedia.org/wiki/RAID<br/>
+<sup>2</sup> http://www.webopedia.com/TERM/R/RAID.html
+
+RAID Levels
+========================================================
+type: raidslide
+
+N physical drives can be set up in multiple ways (levels).
+
+When selecting a RAID level, one needs to consider
+<span class="white">capacity</span>,
+<span class="white">performance</span>,
+<span class="white">fault tolerance</span> and
+<span class="white">cost</span>. Always a compromise.
+
+Four commonly used RAID levels are:
+- <span class="white">RAID0</span>: N * drive capacity, fast, unreliable, cheap
+- <span class="white">RAID5</span>: N-1 capacity, slow writes, 1 drive may fail
+- <span class="white">RAID6</span>: N-2 capacity, weak writes, 2 drives may fail
+- <span class="white">RAID10</span>: N/2 capacity, good writes, 1..N/2 drives may fail
+
+RAID Level Comparator
+========================================================
+type: raidslide
+
+A web based application for easily comparing different RAID levels - no
+more manual calculations or creating Excel sheets!
+
+Simply fill in the basic information about
+- single <span class="white">drive size</span>
+- single <span class="white">drive I/O performance</span>
+- single <span class="white">drive price</span>
+- the <span class="white">number of drives</span> you have
+
+...and let the RAID Level Comparator do the rest!
+
+https://easterhanu.shinyapps.io/raidlevelapp/
+
+
+Customer Testimonials
+========================================================
+type: raidslide
+
+Feedback from the ![RAID Level Comparator Supalogo](raid_level_supalogo.png) users:
+
+<span class="white">"*...literally saved minutes - oh, look, an orange!*"</span> -
+John Orangutang, CTO, Ape Cloud Ltd.
+
+<span class="white">"*Mind blown. Never using HDD RAID0 and RAID6 again.*"</span> -
+&lt;read error&gt;, former Enterprise Architech, Reliable & Fast DB
+
+<span class="white">"*My RAID goes to 11.*"</span> - Nigel T.
+
+
+```
+"I don't know about RAID, but I can add an R code chunk here anytime!" - Coursera Student
+```

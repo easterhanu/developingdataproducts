@@ -1,0 +1,33 @@
+.section .reveal .state-background, .reveal .state-background {
+    /* Match the Shiny app background color. */
+    background-color: #2b3e50;
+}
+.reveal a:not(.image) {
+    /* Match the Shiny app link color. */
+    color: #df691a;
+    text-decoration: none;
+}
+.reveal a:not(.image):hover, a:not(.image):focus {
+  color: #df691a;
+  text-decoration: underline;
+}
+.section .reveal p {
+    /* Set default color, affects title slide author, date, etc. */
+    color: slategrey;
+}
+.reveal h1, .reveal h2, .reveal h3 {
+    color: white;
+}
+.raidslide .reveal {
+    color: slategrey;
+}
+.raidslide .reveal section img {
+    margin: 0;
+    background: none;
+}
+.white {
+    color: white;
+}
+.reveal sup {
+    font-size: 70%;
+}
