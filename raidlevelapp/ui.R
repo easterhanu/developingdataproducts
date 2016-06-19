@@ -1,6 +1,6 @@
 # RAID Level Comparator - User Interface
 # Shiny App for Coursera Building Data Products Course
-# Hannu Kivimaki 2016-06-18
+# Hannu Kivimaki 2016-06-19
 #
 
 library(shiny)
@@ -19,8 +19,8 @@ driveIopsList <- c("75 IOPS - 5400 rpm HDD" = 75,
                    "200 IOPS - 15000 rpm HDD" = 200,
                    "50 000 IOPS - SSD" = 50000,
                    "75 000 IOPS - SSD" = 75000,
-                   "100 000 IOPS - SSD" = 10000,
-                   "125 000 IOPS - SSD" = 12500,
+                   "100 000 IOPS - SSD" = 100000,
+                   "125 000 IOPS - SSD" = 125000,
                    "150 000 IOPS - SSD" = 150000)
 
 capacityUnitList <- c("TB", "TiB")
@@ -58,13 +58,15 @@ shinyUI(fluidPage(theme = "bootstrap_superhero.css",
                              "levels, given the number of drives you have.",
                              "Let the Comparator help you choose a sensible",
                              "RAID level depending on your capacity, performance,",
-                             "fault tolerance and price requirements!"),
+                             "fault tolerance and cost requirements!"),
                     dataTableOutput("raidTable"),
                     uiOutput("driveImages"),
                     HTML("<br/><p class='help-block'>See the Wikipedia articles on",
                          "<a href='https://en.wikipedia.org/wiki/RAID'>RAID</a> and",
                          "<a href='https://en.wikipedia.org/wiki/IOPS'>IOPS</a>",
-                         " for background information.</p>")
+                         " for background information and the",
+                         "<a href='http://easterhanu.github.io/raidlevelcomparator.html'>",
+                         "presentation slides</a> for a sales pitch!</p>")
                 )
   )
 

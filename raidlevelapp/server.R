@@ -1,6 +1,6 @@
 # RAID Level Comparator - Server Logic
 # Shiny App for Coursera Building Data Products Course
-# Hannu Kivimaki 2016-06-18
+# Hannu Kivimaki 2016-06-19
 #
 
 library(shiny)
@@ -103,24 +103,24 @@ getFaultTolerance <- function(driveCount) {
     c("0", "1", "2", paste0("1-", r10))
 }
 
-# Returns the price per usable capacity unit for RAID 0/5/6/10.
+# Returns the cost per usable capacity unit for RAID 0/5/6/10.
 # Example:
-#  getCapacityPrice(8, 80, getUsableCapacity(8, 1000, "TiB"))
+#  getCapacityCost(8, 80, getUsableCapacity(8, 1000, "TiB"))
 #    -> 43.99, 50.27, 58.66, 87.91
 #
-getCapacityPrice <- function(driveCount, drivePrice, usableCap) {
-    totalPrice <- driveCount * drivePrice
-    round(totalPrice / usableCap, 2)
+getCapacityCost <- function(driveCount, drivePrice, usableCap) {
+    totalCost <- driveCount * drivePrice
+    round(totalCost / usableCap, 2)
 }
 
-# Returns the price per 100 write IOPS for RAID 0/5/6/10.
+# Returns the cost per 100 write IOPS for RAID 0/5/6/10.
 # Example:
-#  getWriteIopsPrice(8, 80, getWriteIops(8, 100))
+#  getWriteIopsCost(8, 80, getWriteIops(8, 100))
 #    -> 80.00, 320.00, 481.20, 160.00
 #
-getWriteIopsPrice <- function(driveCount, drivePrice, writeIops) {
-    totalPrice <- driveCount * drivePrice
-    round(totalPrice / (writeIops / 100), 2)
+getWriteIopsCost <- function(driveCount, drivePrice, writeIops) {
+    totalCost <- driveCount * drivePrice
+    round(totalCost / (writeIops / 100), 2)
 }
 
 
@@ -164,15 +164,15 @@ shinyServer(function(input, output) {
         tmp[8, ] <- c("Fault Tolerance (Drives)",
                       getFaultTolerance(input$drivecount))
 
-        # Add usable capacity price row.
-        tmp[9, ] <- c(paste("Price", input$currency, "/ Usable", input$capacityunit),
-                      sprintf("%.2f", getCapacityPrice(input$drivecount,
+        # Add usable capacity cost row.
+        tmp[9, ] <- c(paste("Cost", input$currency, "/ Usable", input$capacityunit),
+                      sprintf("%.2f", getCapacityCost(input$drivecount,
                                                        input$driveprice,
                                                        usableCap)))
 
-        # Add write IOPS price row.
-        tmp[10, ] <- c(paste("Price", input$currency, "/ 100 Write IOPS"),
-                       sprintf("%.2f", getWriteIopsPrice(input$drivecount,
+        # Add write IOPS cost row.
+        tmp[10, ] <- c(paste("Cost", input$currency, "/ 100 Write IOPS"),
+                       sprintf("%.2f", getWriteIopsCost(input$drivecount,
                                                          input$driveprice,
                                                          writeIops)))
         tmp

@@ -2,6 +2,8 @@ name: raidlevelapp
 account: easterhanu
 server: shinyapps.io
 appId: 109309
-bundleId: 483460
+bundleId: 483878
 url: https://easterhanu.shinyapps.io/raidlevelapp/
-when: 1466244229.95755
+when: 1466348202.93639
+asMultiple: FALSE
+asStatic: FALSE
